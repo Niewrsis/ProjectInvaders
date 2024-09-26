@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
         if (_isReloading) yield return null;
 
         _isReloading = true;
-        Instantiate(_bulletPrefab, transform.position, Quaternion.identity, transform);
+        Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(attackSpeed);
         _isReloading = false;
     }

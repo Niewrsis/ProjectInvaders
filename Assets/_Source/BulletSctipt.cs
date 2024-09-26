@@ -26,7 +26,7 @@ public class BulletSctipt : MonoBehaviour
     {
         if (other.gameObject != null)
         {
-            Debug.Log("Hit");
+            other.gameObject.GetComponent<EnemyHealth>().HitEnemy();
             Destroy(gameObject);
         }
     }
