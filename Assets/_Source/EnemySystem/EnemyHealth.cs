@@ -6,7 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public void HitEnemy()
     {
-        //Score logic
+        Score.main.AddPoints(50);
         Destroy(gameObject);
     }
 }

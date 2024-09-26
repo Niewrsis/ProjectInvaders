@@ -9,12 +9,11 @@ public class PlayerAttack : MonoBehaviour
     private bool _isReloading = false;
     public void Shoot(Transform transform, float attackSpeed)
     {
+        if (_isReloading) return;
         StartCoroutine(Reloading(attackSpeed));
     }
     private IEnumerator Reloading(float attackSpeed)
     {
-        if (_isReloading) yield return null;
-
         _isReloading = true;
         Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(attackSpeed);

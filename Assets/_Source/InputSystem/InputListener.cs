@@ -5,6 +5,7 @@ public class InputListener : MonoBehaviour
     [Header("References")]
     [SerializeField] private Player player;
     [SerializeField] private PlayerAttack _playerAttack;
+    [SerializeField] private EndGameSystem _endGameSystem;
 
     private PlayerInvoker _playerInvoker;
 
@@ -16,6 +17,7 @@ public class InputListener : MonoBehaviour
     {
         ReadMoveInput();
         ReadMouseClickInput();
+        ReadGameRetryInput();
     }
     private void ReadMoveInput()
     {
@@ -30,9 +32,18 @@ public class InputListener : MonoBehaviour
     }
     private void ReadMouseClickInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             _playerInvoker.InvokeAttack();
+        }
+    }
+    private void ReadGameRetryInput()
+    {
+        if (_endGameSystem.CheckInGame()) return;
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            _endGameSystem.RetryLevel();
         }
     }
 }
