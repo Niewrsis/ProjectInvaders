@@ -1,11 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement
 {
-    public void MoveRight(Transform player, float movementSpeed)
+    public void MoveLeft(Transform transform, float moveSpeed)
     {
-        player.Translate(0f, Vector2.right * movementSpeed, 0)
+        transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
+    }
+    
+    public void MoveRight(Transform transform, float moveSpeed)
+    {
+        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
     }
 }

@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PlayerInvoker : MonoBehaviour
+public class PlayerInvoker
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private PlayerMovement _playerMovement;
+    private PlayerAttack _playerAttack;
+    private Player _player;
 
-    // Update is called once per frame
-    void Update()
+    public PlayerInvoker(Player player, PlayerAttack playerAttack)
     {
-        
+        _playerMovement = new();
+        _playerAttack = playerAttack;
+        _player = player;
+    }
+    public void InvokeMoveLeft()
+    {
+        _playerMovement.MoveLeft(_player.Transform, _player.MovementSpeed);
+    }
+    public void InvokeMoveRight()
+    {
+        _playerMovement.MoveRight(_player.Transform, _player.MovementSpeed);
+    }
+    public void InvokeAttack()
+    {
+        _playerAttack.Shoot(_player.transform, _player.AttackSpeed);
     }
 }

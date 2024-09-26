@@ -1,11 +1,18 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _movmentSpeed;
+    [field: SerializeField] public float MovementSpeed { get; private set; }
+    [field: SerializeField] public float AttackSpeed { get; private set; }
 
-    public Player(float movmentSpeed, Transform transform)
+    private Rigidbody2D _rb;
+    private Transform _transform;
+    public Rigidbody2D Rb => _rb;
+    public Transform Transform => _transform;
+    private void Awake()
     {
-        _movmentSpeed = movmentSpeed;
+        _transform = GetComponent<Transform>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 }
