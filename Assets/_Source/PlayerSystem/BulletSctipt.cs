@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletSctipt : MonoBehaviour
 {
+    [Header("Attributes")]
     [SerializeField] private float flyingSpeed;
 
     private Rigidbody2D _rb;

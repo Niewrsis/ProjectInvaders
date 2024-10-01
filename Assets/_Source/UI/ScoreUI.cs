@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class ScoreUI : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private TextMeshProUGUI _scoreValueText;
 
     private void Update()

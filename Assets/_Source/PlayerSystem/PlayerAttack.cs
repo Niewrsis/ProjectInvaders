@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [Header("Refernces")]
     [SerializeField] private GameObject _bulletPrefab;
 
     private bool _isReloading = false;

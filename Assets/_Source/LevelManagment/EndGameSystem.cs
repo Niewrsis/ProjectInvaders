@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EndGameSystem : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private GameObject _endGame;
     public static GameStateEnum GameState;
 
