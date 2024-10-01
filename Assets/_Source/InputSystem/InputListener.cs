@@ -39,8 +39,6 @@ public class InputListener : MonoBehaviour
     }
     private void ReadGameRetryInput()
     {
-        if (_endGameSystem.CheckInGame()) return;
-
         if (Input.GetKeyUp(KeyCode.R))
         {
             _endGameSystem.RetryLevel();

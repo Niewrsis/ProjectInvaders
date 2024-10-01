@@ -6,20 +6,17 @@ using UnityEngine.SceneManagement;
 public class EndGameSystem : MonoBehaviour
 {
     [SerializeField] private GameObject _endGame;
-    private GameState _gameState;
+    public static GameStateEnum GameState;
 
     private void Awake()
     {
-        _gameState = GameState.InGame;
         _endGame.SetActive(false);
+        GameState = GameStateEnum.InGame;
     }
     private void Update()
     {
+        LoseGame();
         WinGame();
-    }
-    public bool CheckInGame()
-    {
-        return _gameState == GameState.InGame ? true : false;
     }
     public void RetryLevel()
     {
@@ -31,11 +28,17 @@ public class EndGameSystem : MonoBehaviour
         if (transform.childCount != 0) return;
 
         Time.timeScale = 0f;
-        _gameState = GameState.Win;
+        _endGame.SetActive(true);
+    }
+    private void LoseGame()
+    {
+        if (GameState == GameStateEnum.InGame || GameState == GameStateEnum.Win) return;
+
+        Time.timeScale = 0f;
         _endGame.SetActive(true);
     }
 }
-public enum GameState
+public enum GameStateEnum
 {
     Win,
     Lose,
